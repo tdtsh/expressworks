@@ -1,0 +1,18 @@
+ExpressWorks へようこそ — これは Express.js framework を学習する為の自習ワークショップです.
+Express.js ワークショップは workshopper をベースとし、stream-adventure ワークショップ (by @substack and @maxogden) にインスパイアされ作成されました.
+
+API ドキュメント:
+
+http://expressjs.com/api.html
+
+Express.js Guide (電子書籍):
+
+http://expressjsguide.com
+
+バグ報告、提案、フィードバックはこちら:
+
+https://github.com/azat-co/expressworks/issues
+
+Other awesome workshops: http://nodeschool.io
+
+他のワークショップはこちら: http://nodeschool.io

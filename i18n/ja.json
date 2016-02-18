@@ -1,0 +1,26 @@
+{
+  "title": "Express.js を楽しくマスターしよう！",
+  "subtitle": "\u001b[23m演習課題を選択、\u001b[3mEnter\u001b[23m キーを押してスタートします。",
+    "exercise": {
+      "HELLO WORLD!": "ハローワールド",
+      "STATIC": "静的ファイル",
+      "JADE": "JADE",
+      "GOOD OLD FORM": "古き良きFORM",
+      "STYLISH CSS": "スタイリッシュCSS",
+      "PARAM PAM PAM": "パラメータ パラパラ",
+      "WHAT'S IN QUERY": "クエリの中身はなんでしょう？",
+      "JSON ME": "JSONしよう"
+    },
+  "common": {
+    "exercise": {
+      "fail": {
+        "connection": "Error connecting to {{{address}}}: {{{message}}}"
+      }
+    }
+  },
+  "exercises": {
+    "good_old_form": {
+      "source": "Express.js rocks!"
+    }
+  }
+}
