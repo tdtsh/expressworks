@@ -1,25 +1,24 @@
-フォームは重要です。この演習では、従来のWebフォーム（非Ajax）を処理する方法をお教えします。
+フォームは重要です。このエクササイズでは、伝統的な（ajaxを使用しない）ウェブフォームの処理の方法を学べます。
 
-HTML入力フォーム (`<form><input name="str"/></form>`) を返す route (`'/form'`) を書いてください。そして、`str`の値を返す様にしてください。
+HTMLフォームのインプット(`<form><input name="str"/></form>`)と、
+ `str` の値の出力を処理するルーティング(`'/form'`)を記述してください。
 
-POSTリクエストを処理するには、`get()` と同様に`post()`メソッドを使用します。
+POSTリクエストをハンドルするには、以下のように `get()` と同じように使用できる `post()` メソッドを使用してください。
 
 ```js
 app.post('/path', function(req, res){...})
 ```
 
-Express.jsは、あなたのWebサーバーの機能を拡張する手段として、`ミドルウェア（middleware）`という仕組みを使用します。
+Express.jsはあなたが作成しているウェブサーバーに新たな機能を加えるためにミドルウェアを使用します。
 
-ミドルウェアとは、簡単に言えば、あなた独自のリクエストハンドラの前にExpressjsによって呼び出される関数です。
+簡単に言うと、そのミドルウェアはExpress.jsによって、自身のリクエストハンドラの前に実行される関数です。
 
-ミドルウェアは、ロギング、静的ファイルの提供、エラー制御など、多種多様な機能を提供します。
+ミドルウェアによって、ロギングや静的なファイルの提供や、エラーハンドリングなど様々な機能が提供されます。
 
-アプリケーション内で`use()`を使い、そのパラメータにミドルウェアを渡すことによって、アプリケーションにミドルウェアが追加されます。
+ミドルウェアはアプリケーション上で `use()` メソッドを呼び、パラメーターとして渡すことで追加できます。
 
-A middleware is added by calling `use()` on the application and passing the middleware as a parameter.
-
-`ののx-フォームurlencoded` WWW要求体を解析するには、Expressjsは`ボディparser`モジュールから`URLエンコード（）`ミドルウェアを使用することができます。
-To parse `x-www-form-urlencoded` request bodies, Express.js can use `urlencoded()` middleware from the `body-parser` module.
+`x-www-form-urlencoded` リクエストボディをパースするために、
+Express.jsは `body-parser` モジュールの `urlencoded()` ミドルウェアを使用することができます。
 
 ```js
 var bodyparser = require('body-parser')
@@ -29,37 +28,35 @@ app.use(bodyparser.urlencoded({extended: false}))
 
 -----------------------------
 
-## HINTS
+## ヒント
 
-Here is how we can print characters backwards (just one way to do it):
+以下の方法でサーバー側で文字列を出力できます（方法の一例に過ぎません）。
 
 ```js
 req.body.str.split('').reverse().join('')
 ```
 
-Extended set to true (qs) or false (querystring) determines the parser module.
+extendedは `true` か `false` に設定されます。これによって、パーサーのモジュールが決定されます。
+（`true` の場合、 `qs` モジュール、 `false` の場合、 `querystring` モジュール）
 
-Read more about Connect middleware here:
+Connectミドルウェアについては以下を参照してください。
 
   https://github.com/senchalabs/connect#middleware
 
-The documentation of the body-parser module can be found here:
+body-parser モジュールに関してのドキュメントは以下を参照してください。
 
   https://github.com/expressjs/body-parser
 
-Videos: http://bit.ly/1jW1sBf.
+動画: http://bit.ly/1jW1sBf.
 
 -----------------------------
 
-## NOTE
+## 注意
 
-When creating your projects from scratch, install the `body-parser` dependency
-with npm by running:
+1からアプリケーションを作成している場合には、ターミナルで以下のコマンドを実行して `body-parser` をインストールしてください。
 
 ```sh
 $ npm install body-parser
 ```
 
-…in your terminal.
-
-Again, the port to use is passed {appname} to the application as `process.argv[2]`.
+再度になりますが、 {appname} からアプリケーションに渡されるポート番号は `process.argv[2]` で取得できます。

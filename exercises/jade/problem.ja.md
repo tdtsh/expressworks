@@ -1,62 +1,57 @@
-Express.jsで、テンプレートエンジン`"jade"`で描画されるホームページを作成します。
+Jadeというテンプレートエンジンを使用してホームページのレンダリングを行い、Express.jsのアプリケーションを作成しましょう。
 
-ホームページは `/home` でアクセスできる必要があります。
+ホームページは `/home` へのアクセスに対してレスポンスを返します。
 
-ビューでは、`'new Date.toDateString()'`を使用して、現在の日付を表示する必要があります。
+そして、 'new Date.toDateString()' を使用して現在の日付を表示してください。
 
-'toDateString()'は、人間が読める形式でシンプルに日付文字列（時刻を含まない）を返します。
+人が理解できるフォーマットで時刻を含まない日付を返すために、 シンプルに 'toDateString()' を使用します。
 
 -----------------------------
 
-## HINTS
+## ヒント
 
-Jade テンプレートファイル `index.jade` はこうです:
+Jadeのテンプレートファイルであるindex.jadeは以下のような形式です。
 
 ```jade
 h1 Hello World
 p Today is #{date}.
 ```
 
-あなたは私たちが提供する`index.jade`を使用することができます。（推奨） 
-`index.jade` のファイルパスは引数 `process.argv[3]` で供給されます。
+{appname} が提供する `index.jade` を使用することをお勧めします。 `index.jade` へのパスは `process.argv[3]` で取得することができます。
+もちろん、自身で作成したJadeファイルを使用することもできます。 {appname} が提供するものと完全に同じであることを確認してください。
 
-もちろん、あなた自身でのjadeファイルを作成し使用しても構いません。その場合はファイルの内容が私たちのものとまったく同じである事をよく確認してください。
-
-`templates`フォルダ内のテンプレートファイルへのパスを指定する方法はこうです。
+以下は、テンプレートファイルへのパスを `templates` に指定する方法です。
 
 ```js
 app.set('views', path.join(__dirname, 'templates'))
 ```
 
-`__dirname`は、（実行中の）ファイルへの絶対パスです。
-path.joinは、プラットフォーム間（Windows、Linux、OSX等）のパスの相違を吸収するために使用します。
+`__dirname` はjsファイルがあるフォルダへの絶対パスで、 path.join はクロスプラットフォーム(Win と Linux/Mac)のパスを生成するために使用されています。
 
-Express.jsで作成するアプリに、どのテンプレートエンジンを使用するかを教えるには、こうします。
+Express.jsにどのテンプレートエンジンを使用するか設定するために、以下の行を記述してください。
 
 ```js
 app.set('view engine', 'jade')
 ```
 
-ハローワールドの回答内の `res.end()`の代わりに、`res.render()` 関数を使います。`res.render()` は引数として、テンプレートファイル名とデータ（localと呼ばれます）を受け付けます。
+Hello Worldの `res.end()` の代わりに、 `res.render()` 関数を使用して、テンプレートファイルの名前とデータを取得してください。
 
 ```js
 res.render('index', {date: new Date().toDateString()})
 ```
 
-人間が読める形式でシンプルな日付（時刻を含まない）を返すのに、`toDateString()`を使用します。
+人が理解できるフォーマットで時刻を含まない日付を返すために、 シンプルに 'toDateString()' を使用します。
 
 --------------------------------
 
-## NOTE
+## 注意
 
-最初からプロジェクトを作成する場合は、npmで`jade`とその依存関係をインストールします。
+アプリケーションを新規作成している場合には、 `jade` をnpmを使用してインストールしてください。
+作成したjsファイルがあるディレクトリで `$ npm install` コマンドを実行することで、jadeがインストールできます。
 
-このパッケージ（expressworks）上で`$ npm install` を実行すると、jadeがインストールされます。
+再度になりますが、 {appname} からアプリケーションに渡されるポート番号は `process.argv[2]` で取得できます。
 
-ここでも、{appname} が使用するポートは`process.argv[2]`として提供されます。
-
-エラーメッセージ：`Error: Cannot find module 'jade'` を受け取った場合、Express.jsがその相対パス上に jade を探している（そして見つけられない）事が原因です。 
-
-`npm install jade` を実行することでこの問題を解決することができます。
+`Error: Cannot find module 'jade'` というエラーメッセージが出力された場合は、ExpressはJadeを見つけられていません。
+`npm install jade` コマンドを実行することでこれを修正することができます。
 
 Videos: http://bit.ly/1jW1sBf.

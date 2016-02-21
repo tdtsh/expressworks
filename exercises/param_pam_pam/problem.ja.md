@@ -1,19 +1,19 @@
-This exercise is about using URL parameters.
-For example, if you have /message/526aa677a8ceb64569c9d4fb, then you should know how to
-extract that value which is an ID of the message.
+このエクササイズはURLパラメータについてです。
+例えば、 `/message/526aa677a8ceb64569c9d4fb` のようなリクエストを受けた際に、
+メッセージのIDとなる値を抽出する方法を知っていないといけません。
 
-Create an Express.js server that processes PUT `/message/:id` requests
-and produces a SHA-1 hash of the current date combined with the ID from the URL.
+`/message/:id` というPUTリクエストを処理するExpress.jsのサーバーを作成し、
+現在日時とURLから取得したIDを組み合わせたSHA-1ハッシュを生成してください。
 
-For instance, if the server receives
+例えば、サーバーが
 
 ```
 PUT /message/526aa677a8ceb64569c9d4fb
 ```
 
-it will respond with a hash of the current date (as a string) and the ID.
+というリクエストを受けた際に、（文字列としての）現在日時とIDのハッシュを返します。
 
-The SHA-1 can be computed like this:
+SHA-1は以下のようにして計算できます。
 
 ```js
 require('crypto')
@@ -24,28 +24,27 @@ require('crypto')
 
 -----------------------------
 
-## HINTS
+## ヒント
 
-Express.js apps can also be mounted to paths that contain a variable by
-prepending a `:` to the beginning of a variable name. For instance, in
-the following, `app` handles PUT requests in any subdirectory of `/path/`:
+Express.jsのアプリケーションは変数名の頭に `:` を付けることで変数を含むパスを待ち受けることができます。
+例えば、以下の例では、 `app` は `/path/` 以下のどのサブディレクトリに対するPUTリクエストもハンドルします。
 
 ```js
 app.put('/path/:NAME', function(req, res){ /* ... */ });
 ```
 
-The given variable is then stored in `req.params`. So, to extract
-parameters from within the request handlers, use:
+与えられた変数は `req.params` に保存されます。
+リクエストハンドラの中でパラメータを抽出するには、以下のようにしてください。
 
 ```js
 req.params.NAME
 ```
 
-BONUS
+ボーナス
 
-You can use req.param middleware to parse the URL parameter.
+URLパラメータをパースするのに req.param ミドルウェアを使用できます。
 
-For example,
+例えば、
 
 app.param('id', function (req, res, next, id) {
   req.id = id
@@ -58,4 +57,4 @@ app.get('/message/:id', function (req, res, next) {
   next()
 })
 
-Videos: http://bit.ly/1jW1sBf.
+動画: http://bit.ly/1jW1sBf.

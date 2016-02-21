@@ -1,13 +1,12 @@
-まずは Express.js で、`/home` にアクセスすると `Hello World!`と出力するアプリを作ってみましょう。
+`/home` にアクセスが来た際に"Hello World!"を出力するExpress.jsのアプリケーションを作成しましょう。
 
-ポート番号は、{appname} により、あなたの作成するアプリの第一引数として提供されます。
-例: `process.argv[2]`.
+ポート番号は {appname} から1つ目の引数として渡されます。すなわち、 `process.argv[2]` として取得できます。
 
-演習を確認する前に、（Mac OS Xのターミナルで） `$ killall node`を実行し、以前のプロセスを終了しましょう。
+事前に動作させていたプロセスを終了させるために、 `verify` を行う前にMac OS Xのターミナルで `$ killall node`　コマンドを実行してください。
+Windowsの場合はコマンドプロンプトで "taskkill /IM node.exe" コマンドを使用してください。
 
-Windowsの場合はコマンドプロンプト上で `taskkill /IM node.exe` です。
+もしまだであれば、以下のコマンドでExpressモジュールをインストールすることを忘れないでください。
 
-(もし未だなら) Express.js のインストールを忘れずに。
 ```
 $ npm install express --save
 ```
@@ -16,7 +15,8 @@ $ npm install express --save
 
 ## ヒント
 
-Express.js で、ポート番号3000をリッスンし、`'/'` にアクセスすると`Hello World!`と返すアプリはこう書きます。
+Express.jsのアプリケーションを3000番ポートで作成する方法は以下の通りです。
+`'/'` にアクセスが来た際に文字列を返します。
 
 ```js
 var express = require('express')
@@ -27,10 +27,10 @@ app.get('/', function(req, res) {
 app.listen(3000)
 ```
 
-あなたの回答では、ハードコードされたポート番号の代わりに `process.argv[2]` を使う様にしてください。
+以下のように、回答では固定のポート番号の代わりに `process.argv[2]` を使用してください。
 
 ```js
 app.listen(process.argv[2])
 ```
 
-Videos: http://bit.ly/1jW1sBf.
+動画: http://bit.ly/1jW1sBf.

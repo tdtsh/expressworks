@@ -1,26 +1,26 @@
 {
-  "title": "Express.js を楽しくマスターしよう！",
-  "subtitle": "\u001b[23m演習課題を選択、\u001b[3mEnter\u001b[23m キーを押してスタートします。",
-    "exercise": {
-      "HELLO WORLD!": "ハローワールド",
-      "STATIC": "静的ファイル",
-      "JADE": "JADE",
-      "GOOD OLD FORM": "古き良きFORM",
-      "STYLISH CSS": "スタイリッシュCSS",
-      "PARAM PAM PAM": "パラメータ パラパラ",
-      "WHAT'S IN QUERY": "クエリの中身はなんでしょう？",
-      "JSON ME": "JSONしよう"
-    },
+  "title": "楽しくExpress.jsをマスターしましょう！",
+  "subtitle": "\u001b[23mエクササイズを選び、 \u001b[3mEnter\u001b[23m を押して始めましょう",
   "common": {
     "exercise": {
       "fail": {
-        "connection": "Error connecting to {{{address}}}: {{{message}}}"
+        "connection": "{{{address}}} に接続できませんでした: {{{message}}}"
       }
     }
   },
   "exercises": {
     "good_old_form": {
-      "source": "Express.js rocks!"
+      "source": "Express.js最高！"
     }
+  },
+  "exercise": {
+    "HELLO WORLD!": "こんにちは世界！",
+    "JADE": "JADE",
+    "GOOD OLD FORM": "古き良きFORM",
+    "STATIC": "静的ファイル",
+    "STYLISH CSS": "スタイリッシュなCSS",
+    "PARAM PAM PAM": "パラムパムパム",
+    "WHAT'S IN QUERY": "クエリには何が入っているでしょうか",
+    "JSON ME": "私をJSONして"
   }
 }

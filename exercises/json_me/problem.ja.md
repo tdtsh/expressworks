@@ -1,38 +1,39 @@
-Most of the times we're building RESTful API servers with JSON.
+多くの場合、RESTフルなAPIサーバーを作成する場合はJSONを利用します。
 
-Write a server that, when it receives a GET, reads a file, parses it to JSON,
-and responds with that content to the user.
+GETリクエストを受けた際に、ファイルを読み込み、それをJSONに変換し、
+ユーザーにその内容を返すサーバーを作成してください。
 
-The server should respond to any GET that matches the `/books` resource path.
-As always, the port is passed in `process.argv[2]`. The file to read is passed
-in `process.argv[3]`.
+作成するサーバーは `/books` というパスへのGETリクエストには全てレスポンスを行う必要があります。
+いつものように、ポート番号は `process.argv[2]` で渡され、
+読み込むファイルは `process.argv[3]` で渡されます。
 
-Respond with:
+以下のようにしてレスポンスを行ってください。
 
 ```js
 res.json(object)
 ```
 
-Everything should match the `/books` resource path.
+リクエストのパスは `/books` へのものである必要があります。
 
-
-For reading the file, use the `fs` module, e.g.,
+ファイルを読み込むには `fs` モジュールを使用してください。
+例えば、
 
 ```js
 fs.readFile(filename, callback)
 ```
+のように。
 
 -----------------------------
 
-## HINTS
+## ヒント
 
-While the parsing can be done with `JSON.parse`:
+変換は `JSON.parse` を使用して行うことができます。
 
 ```js
 object = JSON.parse(string)
 ```
 
-No need to install the `fs` module. It's part of the core and the Node.js platform.
+`fs` モジュールはインストールする必要はありません。Node.jsのプラットフォームの中のコアの一部だからです。
 
 
-Videos: http://bit.ly/1jW1sBf.
+動画: http://bit.ly/1jW1sBf.

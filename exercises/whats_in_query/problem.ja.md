@@ -1,12 +1,12 @@
-Oftentimes, we need to process the data from the URL query string (urlencoded).
+よく、URLのクエリの（URLエンコードされた）文字列から取得したデータを処理したいということがあります。
 
-Write a route that extracts data from the query string in the GET `/search` URL
-route, e.g. `?results=recent&include_tabs=true` and then outputs it back to
-the user in JSON format.
+GETで `/search` というURLにアクセスが来た際にクエリの文字列からデータを抽出するルーティングの処理を記述してください。
+例えば、 `?results=recent&include_tabs=true` のようなクエリが渡されます。そして、その文字列をJSONの形式でユーザーに返してください。
 
-Use app.get('/search', function(){...}) for the route.
+ルーティングには app.get('/search', function(){...}) を使用してください。
 
-In Express.js, to extract query string parameters, we can use (inside the request handler):
+Express.js では、クエリの文字列のパラメーターを以下のようにして処理することができます。
+（リクエストハンドラーの中で）
 
 ```js
 req.query.NAME
@@ -14,14 +14,14 @@ req.query.NAME
 
 -----------------------------
 
-## HINTS
+## ヒント
 
-No need to install query middleware. It's part of the Express.js framework.
+queryミドルウェアをインストールする必要はありません。Express.jsフレームワークの一部です。
 
-To output JSON we can use:
+JSONを出力するには、以下のように記述します。
 
 ```js
 res.send(object)
 ```
 
-Videos: http://bit.ly/1jW1sBf.
+動画: http://bit.ly/1jW1sBf.
